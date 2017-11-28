@@ -25,7 +25,28 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    // IonicModule.forRoot(MyApp, {
+    //   mode: 'md'
+    // })
+    IonicModule.forRoot(MyApp, {
+      platforms: {
+        android:{
+          mode: 'md',
+          pageTransition: 'ios-transition'
+        },
+
+        ios:{
+          mode: 'md',
+          modalEnter: 'modal-slide-in',
+          modalLeave: 'modal-slide-out',
+          pageTransition: 'ios-transition'
+        },
+
+        windows: {
+          mode: 'md'
+        }
+      }
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
